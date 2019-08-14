@@ -3,7 +3,12 @@ export const initialState = {
     {
       item: "I need to go to movies",
       completed: false,
-      id: 10
+      id: 1
+    },
+    {
+      item: "I need to go to car wash",
+      completed: false,
+      id: 2
     }
   ]
 };
