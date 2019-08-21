@@ -12,25 +12,29 @@ const ToDos = () => {
     setNewTodo(event.target.value);
   };
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    dispatch({ type: "ADD_TODO", payload: newTodo });
+    setNewTodo("");
+  };
+
   return (
     <div>
       <h1>Add To Do</h1>
       <div>
-        <input
-          className="todo-input"
-          type="text"
-          name="newTodo"
-          value={newTodo}
-          onChange={handleChanges}
-        />
-        <button
-          onClick={() => dispatch({ type: "ADD_TODO", payload: newTodo })}
-        >
-          Add item
-        </button>
-        <button onClick={() => dispatch({ type: "CLEAR_COMPLETED" })}>
-          Clear completed
-        </button>
+        <form onSubmit={handleSubmit}>
+          <input
+            className="todo-input"
+            type="text"
+            name="newTodo"
+            value={newTodo}
+            onChange={handleChanges}
+          />
+          <button>Add item</button>
+          <button onClick={() => dispatch({ type: "CLEAR_COMPLETED" })}>
+            Clear completed
+          </button>
+        </form>
       </div>
 
       {state.todos.map(item => (
