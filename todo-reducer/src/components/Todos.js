@@ -31,10 +31,10 @@ const ToDos = () => {
             onChange={handleChanges}
           />
           <button>Add item</button>
-          <button onClick={() => dispatch({ type: "CLEAR_COMPLETED" })}>
-            Clear completed
-          </button>
         </form>
+        <button onClick={() => dispatch({ type: "CLEAR_COMPLETED" })}>
+          Clear completed
+        </button>
       </div>
 
       {state.todos.map(item => (
